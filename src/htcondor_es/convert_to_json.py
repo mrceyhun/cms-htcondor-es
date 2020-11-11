@@ -1071,7 +1071,7 @@ def guess_campaign_type(ad, analysis):
     camp = ad.get("WMAgent_RequestName", "UNKNOWN")
     if analysis:
         return "Analysis"
-    elif re.match(r".*(RunIISummer19UL|_UL[0-9]+).*", camp):
+    elif re.match(r".*(RunIISummer(1|2)[0-9]UL|_UL[0-9]+).*", camp):
         return "MC Ultralegacy"
     elif re.match(r".*UltraLegacy.*", camp):
         return "Data Ultralegacy"
@@ -1081,6 +1081,8 @@ def guess_campaign_type(ad, analysis):
         return "Run3 requests"
     elif re.match(r".*RunII(Summer|Fall|Autumn|Winter)1[5-9].*", camp):
         return "Run2 requests"
+    elif "RVCMSSW" in camp:
+        return "RelVal"
     else:
         return "UNKNOWN"
 
@@ -1130,7 +1132,7 @@ def jobFailed(ad):
 
 def commonExitCode(ad):
     """
-    Consolidate the exit code values of JobExitCode, 
+    Consolidate the exit code values of JobExitCode,
     the  chirped CRAB and WMCore values, and
     the original condor exit code.
     JobExitCode and Chirp_CRAB3_Job_ExitCode
