@@ -93,6 +93,7 @@ class AffiliationManager:
             if _tmp_dir:
                 with open(self.path, "w") as _dir_file:
                     json.dump(_tmp_dir, _dir_file)
+                return _tmp_dir
             else:
                 logging.error(
                     f"The response from the service was empty {str(_tmp_dir)}"

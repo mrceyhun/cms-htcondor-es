@@ -56,7 +56,7 @@ def log_failure(self, exc, task_id, args, kwargs, einfo):
     message = f"failed to query {args}, {kwargs}"
     logging.error(f"failed to query {args}, {kwargs}")
     # TODO: Change email with parameters
-    send_email_alert("carizapo@cern.ch", "[Spider] Failed to query", message)
+    send_email_alert("ceyhun.uzunoglu@cern.ch", "[Spider] Failed to query", message)
 
 
 # ---Tasks----
