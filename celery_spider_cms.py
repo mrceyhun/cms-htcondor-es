@@ -19,7 +19,9 @@ from htcondor_es.celery.tasks import query_schedd, create_affiliation_dir
 from htcondor_es.celery.celery import app
 from htcondor_es.utils import get_schedds, get_schedds_from_file
 
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "ERROR"))
+LOGLEVEL = os.environ.get('LOGLEVEL', 'INFO').upper()
+logging.basicConfig(level=LOGLEVEL)
+
 __TYPE_HISTORY = "history"
 __TYPE_QUEUE = "queue"
 
